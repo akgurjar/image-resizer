@@ -11,6 +11,8 @@ import { InfiniteScrollDirective } from './directives/infinite-scroll/infinite-s
 import { PullRefreshDirective } from './directives/pull-refresh/pull-refresh.directive';
 import { DataUrlPipe } from './pipes/data-url/data-url.pipe';
 import { FileUrlPipe } from './pipes/file-url/file-url.pipe';
+import { AppEffects } from '../app.effects';
+import { ApiService } from './services/api/api.service';
 
 const Modules = [
   MatIconModule,
@@ -36,6 +38,10 @@ const Modules = [
     PullRefreshDirective,
     FileUrlPipe,
     DataUrlPipe,
+  ],
+  providers: [
+    AppEffects,
+    ApiService
   ]
 })
 export class SharedModule { }

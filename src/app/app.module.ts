@@ -8,6 +8,9 @@ import { StoreModule } from '@ngrx/store';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { reducers } from './common/store';
+import { EffectsModule } from '@ngrx/effects';
+import { AppEffects } from './app.effects';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -17,8 +20,10 @@ import { reducers } from './common/store';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    SharedModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     StoreModule.forRoot(reducers),
+    EffectsModule.forRoot([AppEffects]),
   ],
   providers: [],
   bootstrap: [AppComponent]
