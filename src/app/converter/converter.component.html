@@ -1,0 +1,32 @@
+<mat-toolbar color="primary" class="mat-elevation-z2">
+  <button mat-icon-button (click)="location.back()">
+    <mat-icon>arrow_back</mat-icon>
+  </button>&nbsp;
+  <span>Upload Image</span>
+  <div style="flex: 1"></div>
+  <button mat-icon-button [disabled]="!fileUrl" (click)="onUploadFile()">
+    <mat-icon>cloud_upload</mat-icon>
+  </button>
+</mat-toolbar>
+<main style="text-align: center">
+  <div class="card mat-elevation-z1" *ngIf="!!fileUrl">
+    <img [src]="fileUrl" (load)="onLoadImage($event.currentTarget)"/>
+    <button mat-icon-button (click)="fileUrl = null">
+      <mat-icon>delete</mat-icon>
+    </button>
+    <span class="watermark">Original</span>
+  </div>
+  <p  *ngIf="!fileUrl">Choose a Image to resize.</p>
+  <input style="display: none" type="file" accept="image/png, image/jpg, image/jpeg" (change)="onSelectImage(input)" #input />
+  <button class="uploader__button" mat-stroked-button color="accent" (click)="input.click()">
+    Choose Image
+  </button>
+  <div class="card mat-elevation-z1" *ngIf="!!fileUrl">
+    <!-- <img [src]="fileUrl" /> -->
+    <canvas #canvas></canvas>
+    <button mat-icon-button>
+      <mat-icon>cloud_download</mat-icon>
+    </button>
+    <span class="watermark">Resize</span>
+  </div>
+</main>

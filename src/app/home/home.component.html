@@ -1,0 +1,15 @@
+<mat-toolbar color="primary" class="mat-elevation-z2">
+  <button mat-icon-button>
+    <mat-icon>compare</mat-icon>
+  </button>&nbsp;
+  <span>Image Store</span>
+  <div style="flex: 1"></div>
+  <button mat-icon-button routerLink="converter">
+    <mat-icon>add_a_photo</mat-icon>
+  </button>
+</mat-toolbar>
+<main>
+  <span class="placeholder-text" *ngIf="!pictures">Loading Images</span>
+  <span class="placeholder-text" *ngIf="pictures && !pictures.length">No Image Found</span>
+  <app-image-card [picture]="picture" class="card" *ngFor="let picture of pictures"></app-image-card>
+</main>

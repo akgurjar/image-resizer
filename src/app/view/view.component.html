@@ -1,0 +1,32 @@
+<mat-toolbar color="primary" class="mat-elevation-z2">
+  <button mat-icon-button (click)="location.back()">
+    <mat-icon>arrow_back</mat-icon>
+  </button>&nbsp;
+  <span>Image Details</span>
+  <div style="flex: 1"></div>
+  <!-- <button mat-icon-button>
+    <mat-icon>add_a_photo</mat-icon>
+  </button> -->
+</mat-toolbar>
+<main>
+  <ng-template [ngIf]="picture">
+    <div class="card mat-elevation-z1">
+      <img [src]="picture.originalUrl"/>
+      <button mat-icon-button (click)="fileUrl = null">
+        <mat-icon>cloud_download</mat-icon>
+      </button>
+      <span class="watermark">Original</span>
+    </div>
+    <div class="card mat-elevation-z1">
+      <img [src]="picture.resizeUrl"/>
+      <button mat-icon-button (click)="fileUrl = null">
+        <mat-icon>cloud_download</mat-icon>
+      </button>
+      <span class="watermark">Resized</span>
+    </div>
+    <span class="picture__date"> {{ picture.createdAt | date : 'medium' }} </span>
+  </ng-template>
+  <ng-template [ngIf]="!picture">
+    Content Changed or Removed
+  </ng-template>
+</main>

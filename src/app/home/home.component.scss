@@ -1,0 +1,21 @@
+@import 'core';
+
+.card:not(:last-child) {
+    margin-bottom: 12px;
+}
+.placeholder-text {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    margin: 12px 0;
+    font-size: 24px;
+    color: rgba(#000, .5);
+}
+@include large-device {
+    .card:not(:last-child) {
+        margin-bottom: 24px;
+    }
+    .placeholder-text {
+        margin: 24px 0;
+    }
+}

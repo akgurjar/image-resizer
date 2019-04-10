@@ -1,1 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'core';
+
+html, body {
+    height: 100%;
+}
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    background-color: #F1F1F1;
+    touch-action: none;
+    overscroll-behavior: contain;
+}
+
+mat-toolbar {
+    position: relative;
+    z-index: 999;
+}
+
+main {
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: calc(100% - 80px);
+    padding: 12px 10px;
+}
+@include large-device {
+    main {
+        height: calc(100% - 112px);
+        padding: 24px 20px;
+    }
+}
